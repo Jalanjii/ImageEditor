@@ -1,0 +1,36 @@
+<resources>
+    <string name="app_name">ImageEditor</string>
+    <string name="text_red">RED:</string>
+    <string name="text_green">GREEN:</string>
+    <string name="text_blue">BLUE:</string>
+    <string name="button_apply">Apply Filters</string>
+    <string name="filter_blacknwhite">Black/White</string>
+    <string name="filter_invert">Invert</string>
+    <string name="filter_changecolor">Change Color</string>
+    <string name="edittext_newWidth">New Width</string>
+    <string name="edittext_newHeight">New Height</string>
+    <string name="textView_originalImage">Original Image WidthXHeight: %sx%s</string>
+    <string name="textView_newImage" >New Image WidthXHeight: %sx%s</string>
+    <string name="button_applyResize" >Apply Resize</string>
+    <string name="button_imageReset">Reset Image</string>
+    <string name="activity_Resizer">Resize</string>
+    <string name="activity_Astar">AStar</string>
+    <string name="button_startPoint">Start Point</string>
+    <string name="button_endPoint">End Point</string>
+    <string name="button_startAstar">Start Astar</string>
+    <string name="checkbox_diagonal">isDiagonal</string>
+    <string name="button_change">Change</string>
+    <string name="edittext_default">20</string>
+    <string name="activity_Unsharp">Unsharp Mask</string>
+    <string name="activity_Spline">Draw Splines</string>
+    <string name="spline_add">Add Point</string>
+    <string name="spline_move">Move Point</string>
+    <string name="spline_delete">Delete Point</string>
+    <string name="spline_clear">Clear All Points</string>
+    <string name="spline_view">View Mode</string>
+    <string name="activity_Retouch">Retouch Image</string>
+    <string name="retouch_effect">Effect:</string>
+    <string name="retouch_circle">Size:</string>
+    <string name="button_selectNew">Select New Image</string>
+    <string name="unsharp_Threshold">Threshold:</string>
+</resources>

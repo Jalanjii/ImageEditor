@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <item
+        android:id="@+id/spline_add"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="@string/spline_add"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/spline_move"
+        android:icon="@android:drawable/ic_menu_compass"
+        android:title="@string/spline_move"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/spline_delete"
+        android:icon="@android:drawable/ic_menu_delete"
+        android:title="@string/spline_delete"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/spline_clear"
+        android:icon="@android:drawable/ic_menu_close_clear_cancel"
+        android:title="@string/spline_clear"
+        app:showAsAction="ifRoom" />
+    <item
+        android:id="@+id/spline_view"
+        android:icon="@android:drawable/ic_menu_view"
+        android:title="@string/spline_view"
+        app:showAsAction="ifRoom" />
+
+</menu>

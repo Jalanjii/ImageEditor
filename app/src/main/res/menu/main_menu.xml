@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/startResizer"
+        android:title="@string/activity_Resizer" />
+    <item
+        android:id="@+id/startAStar"
+        android:title="@string/activity_Astar" />
+    <item
+        android:id="@+id/startUnsharp"
+        android:title="@string/activity_Unsharp" />
+    <item
+        android:id="@+id/startSpline"
+        android:title="@string/activity_Spline" />
+    <item
+        android:id="@+id/startRetouch"
+        android:title="@string/activity_Retouch" />
+</menu>
