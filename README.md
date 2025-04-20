@@ -1,3 +1,15 @@
-## imageEditor
+# ImageEditor
 
-This is an image editor android app. It has multiple functionalities, including an A* algorithm application. If you want to try and experiment with it, have it on Android Studio, and generate the apk file if you want it on your Android.
+This is an image editor android app, you can upload a photo and edit in several ways, by inverting the color, making it black and white, or playing with the colors of your choice.
+There are also some interesting mental games included such as drawing splines, and an application of A* Algorithm !
+
+If you want to try it, simply download the apk file at `\imageeditor\app\build\outputs\apk\debug`, and install it on your Android. If you're an iPhone user, build the project inside the Android Studio.
+
+### Project Versions
+
+- Gradle: 7.6.2
+- Android Gradle Plugin: 7.4.2
+- Kotlin: 1.7.10
+- Java: 17
+
+For full project build dependencies, check out the respective files.

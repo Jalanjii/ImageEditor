@@ -71,6 +71,56 @@ public class GridView extends View implements ResultContract {
         height = MeasureSpec.getSize(heightMeasureSpec);
     }
 
+//    @Override
+//    protected void onDraw(Canvas canvas) {
+//        super.onDraw(canvas);
+//        tileWidth = width / cols;
+//        tileHeight = height / rows;
+//        boolean border = false;
+//        paint.setStyle(Paint.Style.STROKE);
+//        canvas.drawRect(0, 0, getWidth(), getHeight(), paint);
+//
+//        for (int r = 0; r < rows; r++)
+//            for (int c = 0; c < cols; c++) {
+//                paint.setStyle(Paint.Style.FILL);
+//                int value = grid[r][c];
+//                switch (value) {
+//                    case TILE_EMPTY:
+//                        paint.setStyle(Paint.Style.STROKE);
+//                        paint.setColor(Color.BLACK);
+//                        break;
+//                    case TILE_START:
+//                        paint.setColor(Color.RED);
+//                        break;
+//                    case TILE_END:
+//                        paint.setColor(Color.GREEN);
+//                        break;
+//                    case TILE_BLOCK:
+//                        paint.setColor(Color.BLACK);
+//                        break;
+//                    case TILE_SET:
+//                        paint.setColor(Color.CYAN);
+//                        border = true;
+//                        break;
+//                    case TILE_QUEUE:
+//                        paint.setColor(Color.LTGRAY);
+//                        border = true;
+//                        break;
+//                    case TILE_PATH:
+//                        paint.setColor(Color.YELLOW);
+//                        border = true;
+//                        break;
+//                }
+//                canvas.drawRect(c * tileWidth, r * tileHeight, c * tileWidth + tileWidth, r * tileHeight + tileHeight, paint);
+//                if (border) {
+//                    paint.setStyle(Paint.Style.STROKE);
+//                    paint.setColor(Color.BLACK);
+//                    canvas.drawRect(c * tileWidth, r * tileHeight, c * tileWidth + tileWidth, r * tileHeight + tileHeight, paint);
+//                }
+//
+//            }
+//    }
+
     @Override
     protected void onDraw(Canvas canvas) {
         super.onDraw(canvas);
@@ -84,40 +134,46 @@ public class GridView extends View implements ResultContract {
             for (int c = 0; c < cols; c++) {
                 paint.setStyle(Paint.Style.FILL);
                 int value = grid[r][c];
-                switch (value) {
-                    case TILE_EMPTY:
-                        paint.setStyle(Paint.Style.STROKE);
-                        paint.setColor(Color.BLACK);
-                        break;
-                    case TILE_START:
-                        paint.setColor(Color.RED);
-                        break;
-                    case TILE_END:
-                        paint.setColor(Color.GREEN);
-                        break;
-                    case TILE_BLOCK:
-                        paint.setColor(Color.BLACK);
-                        break;
-                    case TILE_SET:
-                        paint.setColor(Color.CYAN);
-                        border = true;
-                        break;
-                    case TILE_QUEUE:
-                        paint.setColor(Color.LTGRAY);
-                        border = true;
-                        break;
-                    case TILE_PATH:
-                        paint.setColor(Color.YELLOW);
-                        border = true;
-                        break;
+                border = false; // Reset border for each tile
+
+                if (value == TILE_EMPTY) {
+                    paint.setStyle(Paint.Style.STROKE);
+                    paint.setColor(Color.BLACK);
+                } else if (value == TILE_START) {
+                    paint.setColor(Color.RED);
+                } else if (value == TILE_END) {
+                    paint.setColor(Color.GREEN);
+                } else if (value == TILE_BLOCK) {
+                    paint.setColor(Color.BLACK);
+                } else if (value == TILE_SET) {
+                    paint.setColor(Color.CYAN);
+                    border = true;
+                } else if (value == TILE_QUEUE) {
+                    paint.setColor(Color.LTGRAY);
+                    border = true;
+                } else if (value == TILE_PATH) {
+                    paint.setColor(Color.YELLOW);
+                    border = true;
                 }
-                canvas.drawRect(c * tileWidth, r * tileHeight, c * tileWidth + tileWidth, r * tileHeight + tileHeight, paint);
+
+                canvas.drawRect(
+                        c * tileWidth,
+                        r * tileHeight,
+                        c * tileWidth + tileWidth,
+                        r * tileHeight + tileHeight,
+                        paint
+                );
                 if (border) {
                     paint.setStyle(Paint.Style.STROKE);
                     paint.setColor(Color.BLACK);
-                    canvas.drawRect(c * tileWidth, r * tileHeight, c * tileWidth + tileWidth, r * tileHeight + tileHeight, paint);
+                    canvas.drawRect(
+                            c * tileWidth,
+                            r * tileHeight,
+                            c * tileWidth + tileWidth,
+                            r * tileHeight + tileHeight,
+                            paint
+                    );
                 }
-
             }
     }
 

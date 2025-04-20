@@ -353,6 +353,63 @@ public class CurveView extends View {
     }
 
 
+//    @Override
+//    public boolean onTouchEvent(MotionEvent event) {
+//        float x = event.getX();
+//        float y = event.getY();
+//
+//        Point selectedPoint;
+//
+//        switch (event.getAction()) {
+//
+//            case MotionEvent.ACTION_DOWN:
+//
+//                if (isAdd) {
+//
+//                    listPoints.add(new Point(x, y));
+//
+//                } else if (isRemove) {
+//
+//
+//                    int i = findPoint(x, y);
+//
+//                    if (i != -1) {
+//
+//                        listPoints.remove(i);
+//
+//                    }
+//
+//                } else if (isMove) {
+//
+//                    indice = findPoint(x, y);
+//
+//                }
+//
+//                break;
+//
+//            case MotionEvent.ACTION_MOVE:
+//
+//                if (indice != -1) {
+//
+//                    selectedPoint = listPoints.get(indice);
+//                    selectedPoint.movePoint(x, y);
+//
+//                }
+//
+//                break;
+//
+//            case MotionEvent.ACTION_UP:
+//
+//                selectedPoint = null;
+//                indice = -1;
+//
+//        }
+//
+//        invalidate();
+//
+//        return true;
+//    }
+
     @Override
     public boolean onTouchEvent(MotionEvent event) {
         float x = event.getX();
@@ -360,48 +417,32 @@ public class CurveView extends View {
 
         Point selectedPoint;
 
-        switch (event.getAction()) {
+        int action = event.getAction();
 
-            case MotionEvent.ACTION_DOWN:
+        if (action == MotionEvent.ACTION_DOWN) {
 
-                if (isAdd) {
-
-                    listPoints.add(new Point(x, y));
-
-                } else if (isRemove) {
-
-
-                    int i = findPoint(x, y);
-
-                    if (i != -1) {
-
-                        listPoints.remove(i);
-
-                    }
-
-                } else if (isMove) {
-
-                    indice = findPoint(x, y);
-
+            if (isAdd) {
+                listPoints.add(new Point(x, y));
+            } else if (isRemove) {
+                int i = findPoint(x, y);
+                if (i != -1) {
+                    listPoints.remove(i);
                 }
+            } else if (isMove) {
+                indice = findPoint(x, y);
+            }
 
-                break;
+        } else if (action == MotionEvent.ACTION_MOVE) {
 
-            case MotionEvent.ACTION_MOVE:
+            if (indice != -1) {
+                selectedPoint = listPoints.get(indice);
+                selectedPoint.movePoint(x, y);
+            }
 
-                if (indice != -1) {
+        } else if (action == MotionEvent.ACTION_UP) {
 
-                    selectedPoint = listPoints.get(indice);
-                    selectedPoint.movePoint(x, y);
-
-                }
-
-                break;
-
-            case MotionEvent.ACTION_UP:
-
-                selectedPoint = null;
-                indice = -1;
+            selectedPoint = null;
+            indice = -1;
 
         }
 

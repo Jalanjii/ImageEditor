@@ -85,21 +85,29 @@ public class MainFragment extends Fragment {
 
 
         imageViewSource.setOnClickListener(v -> checkIfPermissionGranted());
-
-
         buttonApply.setOnClickListener(v -> {
-            switch (currentFilter) {
-                case FILTER_BLACKNWHITE:
-                    setMainImageBitmap(BitmapFilters.blackNWhite(bitmap));
-                    break;
-                case FILTER_CHANGECOLOR:
-                    setMainImageBitmap(BitmapFilters.changeBitmapColor(bitmap));
-                    break;
-                case FILTER_INVERT:
-                    setMainImageBitmap(BitmapFilters.invert(bitmap));
-                    break;
+            if (currentFilter == FILTER_BLACKNWHITE) {
+                setMainImageBitmap(BitmapFilters.blackNWhite(bitmap));
+            } else if (currentFilter == FILTER_CHANGECOLOR) {
+                setMainImageBitmap(BitmapFilters.changeBitmapColor(bitmap));
+            } else if (currentFilter == FILTER_INVERT) {
+                setMainImageBitmap(BitmapFilters.invert(bitmap));
             }
         });
+
+//        buttonApply.setOnClickListener(v -> {
+//            switch (currentFilter) {
+//                case FILTER_BLACKNWHITE:
+//                    setMainImageBitmap(BitmapFilters.blackNWhite(bitmap));
+//                    break;
+//                case FILTER_CHANGECOLOR:
+//                    setMainImageBitmap(BitmapFilters.changeBitmapColor(bitmap));
+//                    break;
+//                case FILTER_INVERT:
+//                    setMainImageBitmap(BitmapFilters.invert(bitmap));
+//                    break;
+//            }
+//        });
 
         return view;
     }
@@ -135,31 +143,54 @@ public class MainFragment extends Fragment {
         inflater.inflate(R.menu.main_menu, menu);
     }
 
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        switch (item.getItemId()) {
+//            case R.id.startResizer:
+//                startActivity(ResizeActivity.getActivity(getContext(), defaultImageUri));
+//                return true;
+//
+//            case R.id.startAStar:
+//                startActivity(AStarActivity.getActivity(getContext()));
+//                return true;
+//
+//            case R.id.startUnsharp:
+//                startActivity(UnsharpMaskActivity.getActivity(getContext(), defaultImageUri));
+//                return true;
+//
+//            case R.id.startSpline:
+//                startActivity(SplineActivity.getActivity(getContext()));
+//                return true;
+//
+//            case R.id.startRetouch:
+//                startActivity(RetouchActivity.getActivity(getContext(), defaultImageUri));
+//                return true;
+//        }
+//        return false;
+//    }
+
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
-        switch (item.getItemId()) {
-            case R.id.startResizer:
-                startActivity(ResizeActivity.getActivity(getContext(), defaultImageUri));
-                return true;
-
-            case R.id.startAStar:
-                startActivity(AStarActivity.getActivity(getContext()));
-                return true;
-
-            case R.id.startUnsharp:
-                startActivity(UnsharpMaskActivity.getActivity(getContext(), defaultImageUri));
-                return true;
-
-            case R.id.startSpline:
-                startActivity(SplineActivity.getActivity(getContext()));
-                return true;
-
-            case R.id.startRetouch:
-                startActivity(RetouchActivity.getActivity(getContext(), defaultImageUri));
-                return true;
+        int id = item.getItemId();
+        if (id == R.id.startResizer) {
+            startActivity(ResizeActivity.getActivity(getContext(), defaultImageUri));
+            return true;
+        } else if (id == R.id.startAStar) {
+            startActivity(AStarActivity.getActivity(getContext()));
+            return true;
+        } else if (id == R.id.startUnsharp) {
+            startActivity(UnsharpMaskActivity.getActivity(getContext(), defaultImageUri));
+            return true;
+        } else if (id == R.id.startSpline) {
+            startActivity(SplineActivity.getActivity(getContext()));
+            return true;
+        } else if (id == R.id.startRetouch) {
+            startActivity(RetouchActivity.getActivity(getContext(), defaultImageUri));
+            return true;
         }
         return false;
     }
+
 
     private void defineIds() {
         filterGroup = view.findViewById(R.id.select_filters);

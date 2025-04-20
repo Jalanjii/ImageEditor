@@ -44,27 +44,50 @@ public class SplineFragment extends Fragment {
     @Override
     public boolean onOptionsItemSelected(@NonNull MenuItem item) {
         int id = item.getItemId();
-        switch (id) {
-            case R.id.spline_add:
-                view.selectAdd();
-                return true;
-
-            case R.id.spline_move:
-                view.selectMove();
-                return true;
-
-            case R.id.spline_delete:
-                view.selectDelete();
-                return true;
-
-            case R.id.spline_clear:
-                view.clearList();
-                return true;
-
-            case R.id.spline_view:
-                view.setVisibilityControlPoints(false);
-                return true;
+        if (id == R.id.spline_add) {
+            view.selectAdd();
+            return true;
+        } else if (id == R.id.spline_move) {
+            view.selectMove();
+            return true;
+        } else if (id == R.id.spline_delete) {
+            view.selectDelete();
+            return true;
+        } else if (id == R.id.spline_clear) {
+            view.clearList();
+            return true;
+        } else if (id == R.id.spline_view) {
+            view.setVisibilityControlPoints(false);
+            return true;
         }
         return false;
     }
 }
+
+//    @Override
+//    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+//        int id = item.getItemId();
+//        switch (id) {
+//            case R.id.spline_add:
+//                view.selectAdd();
+//                return true;
+//
+//            case R.id.spline_move:
+//                view.selectMove();
+//                return true;
+//
+//            case R.id.spline_delete:
+//                view.selectDelete();
+//                return true;
+//
+//            case R.id.spline_clear:
+//                view.clearList();
+//                return true;
+//
+//            case R.id.spline_view:
+//                view.setVisibilityControlPoints(false);
+//                return true;
+//        }
+//        return false;
+//    }
+//}
